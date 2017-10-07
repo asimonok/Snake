@@ -12,7 +12,7 @@ function game () {
     const buttonPause = document.querySelector('.js-pause')
     const buttonRestart = document.querySelector('.js-restart')
     const bestResultElement = document.querySelector('.js-best-result')
-    const bestResult = parseInt(localStorage.getItem('best')) || 0
+    let bestResult = parseInt(localStorage.getItem('best')) || 0
     const ctx = canvas.getContext('2d')
     const width = canvas.width
     const height = canvas.height
@@ -52,6 +52,7 @@ function game () {
                 if (score > bestResult) {
                     localStorage.setItem('best', score)
                     bestResultElement.textContent = score
+                    bestResult = score
                 }
 
             } else {
