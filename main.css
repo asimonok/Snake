@@ -1,0 +1,47 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: #f1f1f1;
+    font-family: Verdana;
+}
+
+.controls,
+.area {
+    width: 504px;
+    margin: auto;
+}
+
+.controls {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.button {
+    padding: 10px 15px;
+}
+
+.area {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.frame {
+    border: 2px solid lightgrey;
+    position: relative;
+    z-index: 2;
+}
+
+.score {
+    font-size: 100px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1;
+    color: darkgrey;
+    line-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
