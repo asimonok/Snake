@@ -11,6 +11,8 @@ function game () {
     const scoreElement = document.querySelector('.score')
     const buttonPause = document.querySelector('.js-pause')
     const buttonRestart = document.querySelector('.js-restart')
+    const bestResultElement = document.querySelector('.js-best-result')
+    const bestResult = parseInt(localStorage.getItem('best')) || 0
     const ctx = canvas.getContext('2d')
     const width = canvas.width
     const height = canvas.height
@@ -25,6 +27,7 @@ function game () {
     let isChangeDir = true
     let isPlay = true
     let timer = null
+    bestResultElement.textContent = bestResult
     createGame()
     drawSnake(ctx, snakeBody, cellSize)
     drawFood(ctx, food, cellSize)
@@ -46,6 +49,10 @@ function game () {
                 drawFood(ctx, food, cellSize)
                 score++
                 scoreElement.textContent = score
+                if (score > bestResult) {
+                    localStorage.setItem('best', score)
+                    bestResultElement.textContent = score
+                }
 
             } else {
                 snakeBody.shift()
